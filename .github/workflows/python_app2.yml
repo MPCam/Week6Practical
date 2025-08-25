@@ -1,4 +1,4 @@
-name: Run pytest on flush
+name: Run pytest on coverage
 on: [push, pull_request]
 jobs:
   test:
@@ -16,7 +16,7 @@ jobs:
         run: pip install pytest
 
       - name: Run Unit Tests on Coverage
-        run: pytest --cov=Example1 --cov-fail-under=90
+        run: pytest --cov=test_1.py --cov-fail-under=90
 
 
 
