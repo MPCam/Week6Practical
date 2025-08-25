@@ -1,0 +1,22 @@
+name: Run pytest on flush
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run Unit Tests on Coverage
+        run: pytest --cov=Example1 --cov-fail-under=90
+
+
+
